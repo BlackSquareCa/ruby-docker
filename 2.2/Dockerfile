@@ -13,6 +13,9 @@ RUN apt-get update \
 		libyaml-dev \
 		procps \
 		zlib1g-dev \
+    build-essential \
+    git \
+    libpq-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV RUBY_MAJOR 2.2
@@ -23,7 +26,6 @@ ENV RUBY_VERSION 2.2.2
 RUN buildDeps=' \
 		autoconf \
 		bison \
-		gcc \
 		libbz2-dev \
 		libgdbm-dev \
 		libglib2.0-dev \
@@ -31,7 +33,6 @@ RUN buildDeps=' \
 		libreadline-dev \
 		libxml2-dev \
 		libxslt-dev \
-		make \
 		ruby \
 	' \
 	&& set -x \
