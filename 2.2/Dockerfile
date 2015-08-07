@@ -13,9 +13,10 @@ RUN apt-get update \
 		libyaml-dev \
 		procps \
 		zlib1g-dev \
-    build-essential \
-    git \
-    libpq-dev \
+		build-essential \
+		git \
+		libpq-dev \
+		nodejs \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV RUBY_MAJOR 2.2
