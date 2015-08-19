@@ -52,7 +52,6 @@ RUN buildDeps=' \
 	&& make -j"$(nproc)" \
 	&& make install \
 	&& rm -r /usr/src/ruby \
-        && /usr/local/bin/gem update --system \
 	&& apt-get purge -y --auto-remove $buildDeps
 
 # skip installing gem documentation
@@ -63,6 +62,8 @@ ENV GEM_HOME /usr/local/bundle
 ENV PATH $GEM_HOME/bin:$PATH
 
 ENV BUNDLER_VERSION 1.10.6
+
+RUN gem update --system
 
 RUN gem install bundler --version "$BUNDLER_VERSION" \
 	&& bundle config --global path "$GEM_HOME" \
