@@ -52,6 +52,7 @@ RUN buildDeps=' \
 	&& make -j"$(nproc)" \
 	&& make install \
 	&& rm -r /usr/src/ruby \
+        && gem update --system \
 	&& apt-get purge -y --auto-remove $buildDeps
 
 # skip installing gem documentation
