@@ -3,24 +3,33 @@ FROM ubuntu:14.04
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update \
-	&& apt-get install -y --no-install-recommends \
-		bzip2 \
-		ca-certificates \
-		curl \
-		libffi-dev \
-		libgdbm3 \
-		libssl-dev \
-		libyaml-dev \
-		procps \
-		zlib1g-dev \
-		build-essential \
-		git \
-		libpq-dev \
-		nodejs \
-                libcurl4-gnutls-dev \
-                libmagickwand-dev \
-                imagemagick \
-	&& rm -rf /var/lib/apt/lists/*
+  && apt-get install -y --no-install-recommends \
+    bzip2 \
+    ca-certificates \
+    curl \
+    libffi-dev \
+    libgdbm3 \
+    libssl-dev \
+    libyaml-dev \
+    procps \
+    zlib1g-dev \
+    build-essential \
+    git \
+    libpq-dev \
+    nodejs \
+    autoconf \
+    bison \
+    libgdbm-dev \
+    libglib2.0-dev \
+    libncurses-dev \
+    libreadline-dev \
+    libbz2-dev \
+    libxslt-dev \    
+    libxml2-dev \
+    libcurl4-gnutls-dev \
+    libmagickwand-dev \
+    imagemagick \
+  && rm -rf /var/lib/apt/lists/*
 
 ENV RUBY_MAJOR 2.0
 ENV RUBY_VERSION 2.0.0-p647
@@ -28,13 +37,6 @@ ENV RUBY_VERSION 2.0.0-p647
 # some of ruby's build scripts are written in ruby
 # we purge this later to make sure our final image uses what we just built
 RUN buildDeps=' \
-		autoconf \
-		bison \
-		libgdbm-dev \
-		libglib2.0-dev \
-		libncurses-dev \
-		libreadline-dev \
-		libxslt-dev \
 		ruby \
 	' \
 	&& set -x \
