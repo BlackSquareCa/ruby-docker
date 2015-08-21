@@ -30,12 +30,10 @@ ENV RUBY_VERSION 2.0.0-p647
 RUN buildDeps=' \
 		autoconf \
 		bison \
-		libbz2-dev \
 		libgdbm-dev \
 		libglib2.0-dev \
 		libncurses-dev \
 		libreadline-dev \
-		libxml2-dev \
 		libxslt-dev \
 		ruby \
 	' \
