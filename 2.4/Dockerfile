@@ -2,7 +2,8 @@ FROM ubuntu:16.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update \
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
+  && apt-get update \
 	&& apt-get install -y --no-install-recommends \
 		tzdata \
 		apt-transport-https \
@@ -60,7 +61,7 @@ RUN echo 'gem: --no-rdoc --no-ri' >> "$HOME/.gemrc"
 ENV GEM_HOME /usr/local/bundle
 ENV PATH $GEM_HOME/bin:$PATH
 
-ENV BUNDLER_VERSION 1.15.4
+ENV BUNDLER_VERSION 1.16.0
 
 RUN gem install bundler --version "$BUNDLER_VERSION" \
 	&& bundle config --global path "$GEM_HOME" \
