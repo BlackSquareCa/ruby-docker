@@ -11,7 +11,7 @@ RUN apt-get update \
 		ca-certificates \
 		curl \
 		libffi-dev \
-		libgdbm3 \
+		libgdbm5 \
 		libssl-dev \
 		libyaml-dev \
 		procps \
